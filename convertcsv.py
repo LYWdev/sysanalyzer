@@ -48,21 +48,28 @@ def split_args(args):
     return result
 
 def main():
-    log_file = 'pgbench.log'
-    csv_file = 'pgbench.csv'
+    log_file = 'syscall_nginxlog_v1'
+    csv_file = 'syscall_nginxlog_v1.csv'
+    fail_log_file = 'fail_parse.txt'
 
     max_args = 0
 
-    # 파일을 한 줄씩 읽어가며 처리
-    with open(log_file, 'r') as log_f, open(csv_file, 'w', newline='') as csv_f:
-        writer = csv.writer(csv_f)
-
+    # 실패한 로그를 기록할 파일 열기
+    with open(log_file, 'r') as log_f, open(fail_log_file, 'w') as fail_f:
         for line in log_f:
             parsed_line = parse_log_line(line)
-            if parsed_line:
+            if parsed_line is None:
+                # 파싱에 실패한 로그를 fail_parse.txt에 기록
+                fail_f.write(line)
+
+            else:
                 args_count = len(parsed_line) - 4  # PID, 시간, 시스템 콜, 결과 제외
                 if args_count > max_args:
                     max_args = args_count
+
+    # CSV 파일 작성
+    with open(log_file, 'r') as log_f, open(csv_file, 'w', newline='') as csv_f:
+        writer = csv.writer(csv_f)
 
         # 헤더 생성
         headers = ['PID', 'Time', 'System Call']
@@ -74,7 +81,6 @@ def main():
         writer.writerow(headers)
 
         # 다시 파일을 읽으면서 파싱한 데이터를 CSV에 기록
-        log_f.seek(0)
         for line in log_f:
             parsed_line = parse_log_line(line)
             if parsed_line:
@@ -84,4 +90,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
