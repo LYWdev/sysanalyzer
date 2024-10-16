@@ -1,0 +1,334 @@
+id,rtnvalue,sysname,arg1,arg2,arg3,arg4,arg5,arg6,flag유무
+0,ssize_t,read,int fd,void buf[.count],size_t count,,,,없음
+1,ssize_t,write,int fd,const void buf[.count],size_t count,,,,없음
+2,int,open,const char *pathname,int flags,.../* mode_t mode */,,,,있음
+3,int,close,int fd,,,,,,없음
+4,int,stat,const char *restrict pathname,struct stat *restrict statbuf,,,,,없음
+5,int,fstat,int fd,struct stat *statbuf,,,,,없음
+6,int,lstat,const char *restrict pathname,struct stat *restrict statbuf,,,,,없음
+7,int,poll,struct pollfd *fds,nfds_t nfds,int timeout,,,,없음
+8,off_t,lseek,int fd,off_t offset,int whence,,,,있음
+9,void,*mmap,void addr[.length],size_t length,int prot,int flags,int fd,off_t offset,있음
+10,int,mprotect,void addr[.len],size_t len,int prot,,,,있음
+11,int,munmap,void addr[.length],size_t length,,,,,없음
+12,int,brk,void *addr,,,,,,없음
+13,int,sigaction,int signum,const struct sigaction *_Nullable restrict act,struct sigaction *_Nullable restrict oldact,,,,없음
+14,int,sigprocmask,int how,const sigset_t *_Nullable restrict set,sigset_t *_Nullable restrict oldset,,,,있음
+15,int,sigreturn,...,,,,,,없음
+16,int,ioctl,int fd,unsigned long op,...,,,,있음
+17,ssize_t,pread,int fd,void buf[.count],size_t count,off_t offset,,,없음
+18,ssize_t,pwrite,int fd,const void buf[.count],size_t count,off_t offset,,,없음
+19,ssize_t,readv,int fd,const struct iovec *iov,int iovcnt,,,,없음
+20,ssize_t,writev,int fd,const struct iovec *iov,int iovcnt,,,,없음
+21,int,faccessat,int dirfd,const char *pathname,int mode,int flags,,,있음
+22,int,pipe,int pipefd[2],,,,,,없음
+23,int,select,int nfds,fd_set *_Nullable restrict readfds,fd_set *_Nullable restrict writefds,fd_set *_Nullable restrict exceptfds,struct timeval *_Nullable restrict timeout,,없음
+24,int,sched_yield,void,,,,,,없음
+25,void,*mremap,void old_address[.old_size],size_t old_size,size_t new_size,int flags,... /* void *new_address */,,있음
+26,int,msync,void addr[.length],size_t length,int flags,,,,있음
+27,int,mincore,void addr[.length],size_t length,unsigned char *vec,,,,없음
+28,int,madvise,void addr[.length],size_t length,int advice,,,,없음
+29,int,shmget,key_t key,size_t size,int shmflg,,,,없음
+30,void,*shmat,int shmid,const void *shmaddr,int shmflg,,,,없음
+31,int,shmctl,int shmid,int op,struct shmid_ds *buf,,,,있음
+32,int,dup,int oldfd,,,,,,없음
+33,int,dup2,int oldfd,int newfd,,,,,없음
+34,int,pause,void,,,,,,없음
+35,int,nanosleep,const struct timespec *duration,struct timespec *_Nullable rem,,,,,없음
+36,int,getitimer,int which,struct itimerval *curr_value,,,,,있음
+37,unsigned,int alarm,unsigned int seconds,,,,,,없음
+38,int,setitimer,int which,const struct itimerval *restrict new_value,struct itimerval *_Nullable restrict old_value,,,,있음
+39,pid_t,getpid,void,,,,,,없음
+40,ssize_t,sendfile,int out_fd,int in_fd,off_t *_Nullable offset,size_t count,,,없음
+41,int,socket,int domain,int type,int protocol,,,,있음
+42,int,connect,int sockfd,const struct sockaddr *addr,socklen_t addrlen,,,,없음
+43,int,accept,int sockfd,struct sockaddr *_Nullable restrict addr,socklen_t *_Nullable restrict addrlen,,,,없음
+44,ssize_t,send,int sockfd,const void buf[.len],size_t len,int flags,,,있음
+45,ssize_t,recvfrom,int socket,void *restrict buffer,size_t length,int flags,struct sockaddr *restrict address,socklen_t *restrict address_len,있음
+46,ssize_t,sendmsg,int sockfd,const struct msghdr *msg,int flags,,,,있음
+47,ssize_t,recvmsg,int socket,struct msghdr *message,int flags,,,,있음
+48,int,shutdown,int sockfd,int how,,,,,있음
+49,int,bind,int sockfd,const struct sockaddr *addr,socklen_t addrlen,,,,없음
+50,int,listen,int sockfd,int backlog,,,,,없음
+51,int,getsockname,int sockfd,struct sockaddr *restrict addr,socklen_t *restrict addrlen,,,,없음
+52,int,getpeername,int sockfd,struct sockaddr *restrict addr,socklen_t *restrict addrlen,,,,없음
+53,int,socketpair,int domain,int type,int protocol,int sv[2],,,있음
+54,int,setsockopt,int socket,int level,int option_name,const void *option_value,socklen_t option_len,,있음
+55,int,getsockopt,int sockfd,int level,int optname,void optval[restrict *.optlen],socklen_t *restrict optlen,,있음
+56,int,clone,int (*fn)(void *_Nullable),void *stack,int flags,void *_Nullable arg,...,,있음
+57,pid_t,fork,void,,,,,,없음
+58,pid_t,vfork,void,,,,,,없음
+59,int,execve,const char *pathname,char *const _Nullable argv[],char *const _Nullable envp[],,,,없음
+60,void,_exit,int status,,,,,,없음
+61,pid_t,wait4,pid_t pid,int *_Nullable wstatus,int options,struct rusage *_Nullable rusage,,,있음
+62,int,kill,pid_t pid,int sig,,,,,없음
+63,int,uname,struct utsname *buf,,,,,,없음
+64,int,semget,key_t key,int nsems,int semflg,,,,없음
+65,int,semop,int semid,struct sembuf *sops,size_t nsops,,,,있음
+66,int,semctl,int semid,int semnum,int op,...,,,있음
+67,int,shmdt,const void *shmaddr,,,,,,없음
+68,int,msgget,key_t key,int msgflg,,,,,없음
+69,int,msgsnd,int msqid,const void *msgp,size_t msgsz,int msgflg,,,없음
+70,int,msgctl,int msqid,int op,struct msqid_ds *buf,,,,있음
+71,int,msgctl,int msqid,int op,struct msqid_ds *buf,,,,있음
+72,int,fcntl,int fd,int op,... /* arg */,,,,있음
+73,int,flock,int fd,int op,,,,,있음
+74,int,fsync,int fd,,,,,,없음
+75,int,fdatasync,int fd,,,,,,없음
+76,int,truncate,const char *path,off_t length,,,,,없음
+77,int,ftruncate,int fd,off_t length,,,,,없음
+78,long,syscall,SYS_getdents,unsigned int fd,struct linux_dirent *dirp,unsigned int count,,,없음
+79,char,*getcwd,char buf[.size],size_t size,,,,,없음
+80,int,chdir,const char *path,,,,,,없음
+81,int,fchdir,int fd,,,,,,없음
+82,int,rename,const char *oldpath,const char *newpath,,,,,없음
+83,int,mkdir,const char *pathname,mode_t mode,,,,,있음
+84,int,rmdir,const char *pathname,,,,,,없음
+85,int,creat,const char *path,mode_t mode,,,,,있음
+86,int,link,const char *oldpath,const char *newpath,,,,,없음
+87,int,unlink,const char *pathname,,,,,,없음
+88,int,symlink,const char *target,const char *linkpath,,,,,없음
+89,ssize_t,readlink,const char *restrict pathname,char *restrict buf,size_t bufsiz,,,,없음
+90,int,chmod,const char *pathname,mode_t mode,,,,,있음
+91,int,fchmod,int fd,mode_t mode,,,,,있음
+92,int,chown,const char *pathname,uid_t owner,gid_t group,,,,없음
+93,int,fchown,int fd,uid_t owner,gid_t group,,,,없음
+94,int,lchown,const char *pathname,uid_t owner,gid_t group,,,,없음
+95,mode_t,umask,mode_t mask,,,,,,있음
+96,int,gettimeofday,struct timeval *restrict tv,struct timezone *_Nullable restrict tz,,,,,없음
+97,int,getrlimit,int resource,struct rlimit *rlim,,,,,없음
+98,int,getrusage,int who,struct rusage *usage,,,,,있음
+99,int,sysinfo,struct sysinfo *info,,,,,,없음
+100,clock_t,times,struct tms *buf,,,,,,없음
+101,long,ptrace,enum __ptrace_request op,pid_t pid,void *addr,void *data,,,있음
+102,uid_t,getuid,void,,,,,,없음
+103,int,syscall,SYS_syslog,int type,char *bufp,int len,,,없음
+104,gid_t,getgid,void,,,,,,없음
+105,int,setuid,uid_t uid,,,,,,없음
+106,int,setgid,gid_t gid,,,,,,없음
+107,uid_t,geteuid,void,,,,,,없음
+108,gid_t,getgid,void,,,,,,없음
+109,int,setpgid,pid_t pid,pid_t pgid,,,,,없음
+110,pid_t,getppid,void,,,,,,없음
+111,pid_t,getpgrp,void,,,,,,없음
+112,pid_t,setsid,void,,,,,,없음
+113,int,setreuid,uid_t ruid,uid_t euid,,,,,없음
+114,int,setregid,gid_t rgid,gid_t egid,,,,,없음
+115,int,getgroups,int size,gid_t list[],,,,,없음
+116,int,setgroups,size_t size,const gid_t *_Nullable list,,,,,없음
+117,int,setresuid,uid_t ruid,uid_t euid,uid_t suid,,,,없음
+118,int,getresuid,uid_t *ruid,uid_t *euid,uid_t *suid,,,,없음
+119,int,setresgid,gid_t rgid,gid_t egid,gid_t sgid,,,,없음
+120,int,getresgid,gid_t *rgid,gid_t *egid,gid_t *sgid,,,,없음
+121,pid_t,getpgid,pid_t pid,,,,,,없음
+122,int,setfsuid,uid_t fsuid,,,,,,없음
+123,int,setfsgid,gid_t fsgid,,,,,,없음
+124,pid_t,getsid,pid_t pid,,,,,,없음
+125,int,syscall,SYS_capget,cap_user_header_t hdrp,cap_user_data_t datap,,,,없음
+126,int,syscall,SYS_capset,cap_user_header_t hdrp,const cap_user_data_t datap,,,,없음
+127,int,sigpending,sigset_t *set,,,,,,없음
+128,int,sigtimedwait,const sigset_t *restrict set,siginfo_t *_Nullable restrict info,const struct timespec *restrict timeout,,,,없음
+129,int,sigwaitinfo,const sigset_t *restrict set,siginfo_t *_Nullable restrict info,,,,,없음
+130,int,sigsuspend,const sigset_t *mask,,,,,,없음
+131,int,sigaltstack,const stack_t *_Nullable restrict ss,stack_t *_Nullable restrict old_ss,,,,,없음
+132,int,utime,const char *filename,const struct utimbuf *_Nullable times,,,,,없음
+133,int,mknodat,int dirfd,const char *pathname,mode_t mode,dev_t dev,,,있음
+134,int,uselib,const char *library,,,,,,없음
+135,int,personality,unsigned long persona,,,,,,없음
+136,int,ustat,dev_t dev,struct ustat *ubuf,,,,,없음
+137,int,statfs,const char *path,struct statfs *buf,,,,,없음
+138,int,fstatfs,int fd,struct statfs *buf,,,,,없음
+139,int,sysfs,int option,unsigned int fs_index,char *buf,,,,있음
+140,int,getpriority,int which,id_t who,,,,,있음
+141,int,setpriority,int which,id_t who,int prio,,,,있음
+142,int,sched_setparam,pid_t pid,const struct sched_param *param,,,,,없음
+143,int,sched_getparam,pid_t pid,struct sched_param *param,,,,,없음
+144,int,sched_setscheduler,pid_t pid,int policy,const struct sched_param *param,,,,없음
+145,int,sched_getscheduler,pid_t pid,,,,,,없음
+146,int,sched_get_priority_max,int policy,,,,,,없음
+147,int,sched_get_priority_min,int policy,,,,,,없음
+148,int,sched_rr_get_interval,pid_t pid,struct timespec *tp,,,,,없음
+149,int,mlock,const void addr[.len],size_t len,,,,,없음
+150,int,munlock,const void addr[.len],size_t len,,,,,없음
+151,int,mlockall,int flags,,,,,,있음
+152,int,munlockall,void,,,,,,없음
+153,int,vhangup,void,,,,,,없음
+154,int,syscall,SYS_modify_ldt,int func,void ptr[.bytecount],unsigned long bytecount,,,없음
+155,int,syscall,SYS_pivot_root,const char *new_root,const char *put_old,,,,없음
+156,int,_sysctl,struct __sysctl_args *args,,,,,,없음
+157,int,prctl,int op,...,,,,,있음
+158,int,syscall,SYS_arch_prctl,int op,unsigned long addr,,,,있음
+159,int,adjtimex,struct timex *buf,,,,,,없음
+160,int,setrlimit,int resource,const struct rlimit *rlp,,,,,없음
+161,int,chroot,const char *path,,,,,,없음
+162,void,sync,void,,,,,,없음
+163,int,acct,const char *_Nullable filename,,,,,,없음
+164,int,settimeofday,const struct timeval *tv,const struct timezone *_Nullable tz,,,,,없음
+165,int,mount,const char *source,const char *target,const char *filesystemtype,unsigned long mountflags,const void *_Nullable data,,있음
+166,int,umount2,const char *target,int flags,,,,,있음
+167,int,swapon,const char *path,int swapflags,,,,,있음
+168,int,swapoff,const char *path,,,,,,없음
+169,int,syscall,SYS_reboot,int magic,int magic2,int op,void *arg,,있음
+170,int,gethostname,char *name,size_t len,,,,,없음
+171,int,setdomainname,const char *name,size_t len,,,,,없음
+172,int,iopl,int level,,,,,,없음
+173,int,ioperm,unsigned long from,unsigned long num,int turn_on,,,,없음
+174,caddr_t,create_module,const char *name,size_t size,,,,,없음
+175,int,syscall,SYS_finit_module,int fd,const char *param_values,int flags,,,있음
+176,int,syscall,SYS_delete_module,const char *name,unsigned int flags,,,,있음
+177,int,get_kernel_syms,struct kernel_sym *table,,,,,,없음
+178,int,query_module,const char *name,int which,void buf[.bufsize],size_t bufsize,size_t *ret,,있음
+179,int,quotactl,int op,const char *_Nullable special,int id,caddr_t addr,,,있음
+180,long,nfsservctl,int cmd,struct nfsctl_arg *argp,union nfsctl_res *resp,,,,없음
+181,int,getpmsg,int fildes,struct strbuf *restrict ctlptr,struct strbuf *restrict dataptr,int *restrict bandp,int *restrict flagsp,,있음
+182,int,putmsg,int fildes,const struct strbuf *ctlptr,const struct strbuf *dataptr,int flags,,,있음
+183,int,notimplementedI,int arg1,int arg2,int arg3,,,,없음
+184,int,notimplementedI,int arg1,int arg2,int arg3,,,,없음
+185,int,notimplementedI,int arg1,int arg2,int arg3,,,,없음
+186,pid_t,gettid,void,,,,,,없음
+187,ssize_t,readahead,int fd,off_t offset,size_t count,,,,없음
+188,int,setxattr,const char *path,const char *name,const void value[.size],size_t size,int flags,,있음
+189,int,lsetxattr,const char *path,const char *name,const void value[.size],size_t size,int flags,,있음
+190,int,fsetxattr,int fd,const char *name,const void value[.size],size_t size,int flags,,있음
+191,ssize_t,getxattr,const char *path,const char *name,void value[.size],size_t size,,,없음
+192,ssize_t,lgetxattr,const char *path,const char *name,void value[.size],size_t size,,,없음
+193,ssize_t,fgetxattr,int fd,const char *name,void value[.size],size_t size,,,없음
+194,ssize_t,listxattr,const char *path,char *_Nullable list,size_t size,,,,없음
+195,ssize_t,llistxattr,const char *path,char *_Nullable list,size_t size,,,,없음
+196,ssize_t,flistxattr,int fd,char *_Nullable list,size_t size,,,,없음
+197,int,removexattr,const char *path,const char *name,,,,,없음
+198,int,lremovexattr,const char *path,const char *name,,,,,없음
+199,int,fremovexattr,int fd,const char *name,,,,,없음
+200,int,tgkill,pid_t tgid,pid_t tid,int sig,,,,없음
+201,time_t,time,time_t *_Nullable tloc,,,,,,없음
+202,long,syscall,SYS_futex,uint32_t *uaddr,int futex_op,uint32_t val,const struct timespec *timeout,/* or: uint32_t val2 */ uint32_t *uaddr2,있음
+203,int,sched_setaffinity,pid_t pid,size_t cpusetsize,const cpu_set_t *mask,,,,없음
+204,int,sched_getaffinity,pid_t pid,size_t cpusetsize,cpu_set_t *mask,,,,없음
+205,int,syscall,SYS_set_thread_area,struct user_desc *u_info,,,,,없음
+206,long,io_setup,unsigned int nr_events,aio_context_t *ctx_idp,,,,,없음
+207,int,syscall,SYS_io_destroy,aio_context_t ctx_id,,,,,없음
+208,int,syscall,SYS_io_getevents,aio_context_t ctx_id,long min_nr,long nr,struct io_event *events,struct timespec *timeout,없음
+209,int,io_submit,aio_context_t ctx_id,long nr,struct iocb **iocbpp,,,,없음
+210,int,syscall,SYS_io_cancel,aio_context_t ctx_id,struct iocb *iocb,struct io_event *result,,,없음
+211,int,syscall,SYS_get_thread_area,struct user_desc *u_info,,,,,없음
+212,int,syscall,SYS_lookup_dcookie,uint64_t cookie,char *buffer,size_t len,,,없음
+213,int,epoll_create,int size,,,,,,없음
+214,int,nomanpage,int arg1,int arg2,int arg3,,,,없음
+215,int,nomanpage,int arg1,int arg2,int arg3,,,,없음
+216,int,remap_file_pages,void addr[.size],size_t size,int prot,size_t pgoff,int flags,,있음
+217,long,syscall,SYS_getdents,unsigned int fd,struct linux_dirent *dirp,unsigned int count,,,없음
+218,pid_t,syscall,SYS_set_tid_address,int *tidptr,,,,,없음
+219,long,restart_syscall,void,,,,,,없음
+220,int,semtimedop,int semid,struct sembuf *sops,size_t nsops,const struct timespec *_Nullable timeout,,,있음
+221,int,posix_fadvise,int fd,off_t offset,off_t len,int advice,,,없음
+222,int,timer_create,clockid_t clockid,struct sigevent *_Nullable restrict sevp,timer_t *restrict timerid,,,,없음
+223,int,timer_settime,timer_t timerid,int flags,const struct itimerspec *restrict new_value,struct itimerspec *_Nullable restrict old_value,,,있음
+224,int,timer_gettime,timer_t timerid,struct itimerspec *curr_value,,,,,없음
+225,int,timer_getoverrun,timer_t timerid,,,,,,없음
+226,int,timer_delete,timer_t timerid,,,,,,없음
+227,int,clock_settime,clockid_t clockid,const struct timespec *tp,,,,,없음
+228,int,clock_gettime,clockid_t clockid,struct timespec *tp,,,,,없음
+229,int,clock_getres,clockid_t clockid,struct timespec *res,,,,,없음
+230,int,clock_nanosleep,clockid_t clockid,int flags,const struct timespec *t,struct timespec *_Nullable remain,,,있음
+231,void,syscall,SYS_exit_group,int status,,,,,없음
+232,int,epoll_wait,int epfd,struct epoll_event *events,int maxevents,int timeout,,,없음
+233,int,epoll_ctl,int epfd,int op,int fd,struct epoll_event *_Nullable event,,,있음
+234,int,tgkill,pid_t tgid,pid_t tid,int sig,,,,없음
+235,int,utime,const char *filename,const struct utimbuf *_Nullable times,,,,,없음
+236,int,notimplementedI,int arg1,int arg2,int arg3,,,,없음
+237,long,mbind,void addr[.len],unsigned long len,int mode,const unsigned long nodemask[(.maxnode + ULONG_WIDTH - 1) / ULONG_WIDTH],unsigned long maxnode,unsigned int flags,있음
+238,long,set_mempolicy,int mode,const unsigned long *nodemask,unsigned long maxnode,,,,있음
+239,long,get_mempolicy,int *mode,"unsigned long nodemask[(.maxnode + ULONG_WIDTH - 1) / ULONG_WIDTH],",unsigned long maxnode,void *addr,", unsigned long flags);",,있음
+240,mqd_t,mq_open,const char *name,int oflag,mode_t mode,struct mq_attr *attr,,,있음
+241,int,mq_unlink,const char *name,,,,,,없음
+242,int,mq_timedsend,mqd_t mqdes,const char *msg_ptr,size_t msg_len,unsigned msg_prio,const struct timespec *abstime,,없음
+243,ssize_t,mq_timedreceive,mqd_t mqdes,char *restrict msg_ptr,size_t msg_len,unsigned *restrict msg_prio,const struct timespec *restrict abstime,,없음
+244,int,mq_notify,mqd_t mqdes,const struct sigevent *sevp,,,,,없음
+245,int,syscall,SYS_mq_getsetattr,mqd_t mqdes,const struct mq_attr *newattr,struct mq_attr *oldattr,,,없음
+246,long,syscall,SYS_kexec_load,unsigned long entry,unsigned long nr_segments,struct kexec_segment *segments,unsigned long flags,,있음
+247,int,waitid,idtype_t idtype,id_t id,siginfo_t *infop,int options,,,있음
+248,key_serial_t,add_key,const char *type,const char *description,const void payload[.plen],size_t plen,key_serial_t keyring,,없음
+249,key_serial_t,request_key,const char *type,const char *description,const char *_Nullable callout_info,key_serial_t dest_keyring,,,없음
+250,long,syscall,SYS_keyctl,int operation,unsigned long arg2,unsigned long arg3,unsigned long arg4,unsigned long arg5,있음
+251,int,syscall,SYS_ioprio_get,int which,int who,,,,있음
+252,int,syscall,SYS_ioprio_set,int which,int who,int ioprio,,,있음
+253,int,inotify_init1,int flags,,,,,,있음
+254,int,inotify_add_watch,int fd,const char *pathname,uint32_t mask,,,,없음
+255,int,inotify_rm_watch,int fd,int wd,,,,,없음
+256,long,migrate_pages,int pid,unsigned long maxnode,const unsigned long *old_nodes,const unsigned long *new_nodes,,,없음
+257,long,syscall,SYS_openat2,int dirfd,const char *pathname,struct open_how *how,size_t size,,있음
+258,int,mkdirat,int dirfd,const char *pathname,mode_t mode,,,,있음
+259,int,mknodat,int dirfd,const char *pathname,mode_t mode,dev_t dev,,,있음
+260,int,fchownat,int fd,const char *path,uid_t owner,gid_t group,int flag,,있음
+261,int,futimesat,int dirfd,const char *pathname,const struct timeval times[2],,,,없음
+262,int,fstatat,int dirfd,const char *pathname,struct stat *statbuf,int flags,,,있음
+263,int,unlinkat,int dirfd,const char *pathname,int flags,,,,있음
+264,int,renameat,int olddirfd,const char *oldpath,int newdirfd,const char *newpath,,,없음
+265,int,linkat,int olddirfd,const char *oldpath,int newdirfd,const char *newpath,int flags,,있음
+266,int,symlinkat,const char *target,int newdirfd,const char *linkpath,,,,없음
+267,ssize_t,readlink,const char *restrict pathname,char *restrict buf,size_t bufsiz,,,,없음
+268,int,fchmodat,int fd,const char *path,mode_t mode,int flag,,,있음
+269,int,faccessat,int fd,const char *path,int amode,int flag,,,있음
+270,int,pselect,int nfds,fd_set *restrict readfds,fd_set *restrict writefds,fd_set *restrict errorfds,const struct timespec *restrict timeout,const sigset_t *restrict sigmask,없음
+271,int,ppoll,struct pollfd *fds,nfds_t nfds,const struct timespec *_Nullable tmo_p,const sigset_t *_Nullable sigmask,,,없음
+272,int,unshare,int flags,,,,,,있음
+273,long,syscall,SYS_set_robust_list,struct robust_list_head *head,size_t len,,,,없음
+274,long,syscall,SYS_get_robust_list,int pid,struct robust_list_head **head_ptr,size_t *len_ptr,,,없음
+275,ssize_t,splice,int fd_in,off_t *_Nullable off_in,int fd_out,off_t *_Nullable off_out,size_t len,unsigned int flags,있음
+276,ssize_t,tee,int fd_in,int fd_out,size_t len,unsigned int flags,,,있음
+277,int,sync_file_range,int fd,off_t offset,off_t nbytes,unsigned int flags,,,있음
+278,ssize_t,vmsplice,int fd,const struct iovec *iov,size_t nr_segs,unsigned int flags,,,있음
+279,long,move_pages,int pid,unsigned long count,void *pages[.count],const int nodes[.count],int status[.count],int flags,있음
+280,int,utimensat,int dirfd,const char *pathname,const struct timespec times[_Nullable 2],int flags,,,있음
+281,int,epoll_pwait,int epfd,struct epoll_event *events,int maxevents,int timeout,const sigset_t *_Nullable sigmask,,없음
+282,int,signalfd,int fd,const sigset_t *mask,int flags,,,,있음
+283,int,timerfd_create,int clockid,int flags,,,,,있음
+284,int,eventfd,unsigned int initval,int flags,,,,,있음
+285,int,fallocate,int fd,int mode,off_t offset,off_t len,,,있음
+286,int,timerfd_settime,int fd,int flags,const struct itimerspec *new_value,struct itimerspec *_Nullable old_value,,,있음
+287,int,timerfd_gettime,int fd,struct itimerspec *curr_value,,,,,없음
+288,int,accept4,int sockfd,struct sockaddr *restrict addr,socklen_t *restrict addrlen,int flags,,,있음
+289,int,signalfd,int fd,const sigset_t *mask,int flags,,,,있음
+290,int,eventfd,unsigned int initval,int flags,,,,,있음
+291,int,epoll_create1,int flags,,,,,,있음
+292,int,dup3,int oldfd,int newfd,int flags,,,,있음
+293,int,pipe2,int pipefd[2],int flags,,,,,있음
+294,int,inotify_init1,int flags,,,,,,있음
+295,ssize_t,preadv,int fd,const struct iovec *iov,int iovcnt,off_t offset,,,없음
+296,ssize_t,pwritev,int fd,const struct iovec *iov,int iovcnt,off_t offset,,,없음
+297,int,syscall,SYS_rt_tgsigqueueinfo,pid_t tgid,pid_t tid,int sig,siginfo_t *info,,없음
+298,int,syscall,SYS_perf_event_open,struct perf_event_attr *attr,pid_t pid,int cpu,int group_fd,unsigned long flags,있음
+299,int,recvmmsg,int sockfd,struct mmsghdr *msgvec,unsigned int vlen,int flags,struct timespec *timeout,,있음
+300,int,fanotify_init,unsigned int flags,unsigned int event_f_flags,,,,,있음
+301,int,fanotify_mark,int fanotify_fd,unsigned int flags,uint64_t mask,int dirfd,const char *_Nullable pathname,,있음
+302,int,prlimit,pid_t pid,int resource,const struct rlimit *_Nullable new_limit,struct rlimit *_Nullable old_limit,,,없음
+303,int,name_to_handle_at,int dirfd,const char *pathname,struct file_handle *handle,int *mount_id,int flags,,있음
+304,int,open_by_handle_at,int mount_fd,struct file_handle *handle,int flags,,,,있음
+305,int,clock_adjtime,clockid_t clk_id,struct timex *buf,,,,,없음
+306,int,syncfs,int fd,,,,,,없음
+307,int,sendmmsg,int sockfd,struct mmsghdr *msgvec,unsigned int vlen,int flags,,,있음
+308,int,setns,int fd,int nstype,,,,,없음
+309,int,getcpu,unsigned int *_Nullable cpu,unsigned int *_Nullable node,,,,,없음
+310,ssize_t,process_vm_readv,pid_t pid,const struct iovec *local_iov,unsigned long liovcnt,const struct iovec *remote_iov,unsigned long riovcnt,unsigned long flags,있음
+311,ssize_t,process_vm_writev,pid_t pid,const struct iovec *local_iov,unsigned long liovcnt,const struct iovec *remote_iov,unsigned long riovcnt,unsigned long flags,있음
+312,int,syscall,SYS_kcmp,pid_t pid1,pid_t pid2,int type,unsigned long idx1,unsigned long idx2,없음
+313,int,syscall,SYS_finit_module,int fd,const char *param_values,int flags,,,있음
+314,int,syscall,SYS_sched_setattr,pid_t pid,struct sched_attr *attr,unsigned int flags,,,있음
+315,int,syscall,SYS_sched_getattr,pid_t pid,struct sched_attr *attr,unsigned int size,unsigned int flags,,있음
+316,int,renameat2,int olddirfd,const char *oldpath,int newdirfd,const char *newpath,unsigned int flags,,있음
+317,int,syscall,SYS_seccomp,unsigned int operation,unsigned int flags,void *args,,,있음
+318,ssize_t,getrandom,void buf[.buflen],size_t buflen,unsigned int flags,,,,있음
+319,int,memfd_create,const char *name,unsigned int flags,,,,,있음
+320,long,syscall,SYS_kexec_load,unsigned long entry,unsigned long nr_segments,struct kexec_segment *segments,unsigned long flags,,있음
+321,int,bpf,int cmd,union bpf_attr *attr,unsigned int size,,,,없음
+322,int,execveat,int dirfd,const char *pathname,char *const _Nullable argv[],char *const _Nullable envp[],int flags,,있음
+323,int,syscall,SYS_userfaultfd,int flags,,,,,있음
+324,int,syscall,SYS_membarrier,int cmd,unsigned int flags,int cpu_id,,,있음
+325,int,mlock2,const void addr[.len],size_t len,unsigned int flags,,,,있음
+326,ssize_t,copy_file_range,int fd_in,off_t *_Nullable off_in,int fd_out,off_t *_Nullable off_out,size_t len,unsigned int flags,있음
+327,ssize_t,readv,int fd,const struct iovec *iov,int iovcnt,,,,없음
+328,ssize_t,writev,int fd,const struct iovec *iov,int iovcnt,,,,없음
+329,int,pkey_mprotect,void addr[.len],size_t len,int prot,int pkey,,,있음
+330,int,pkey_alloc,unsigned int flags,unsigned int access_rights,,,,,있음
+331,int,pkey_free,int pkey,,,,,,없음
+332,int,statx,int dirfd,const char *restrict pathname,int flags,unsigned int mask,struct statx *restrict statxbuf,,있음
